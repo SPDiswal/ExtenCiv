@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE8BD128-3A16-4A1A-9662-72278E2F37D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtenCiv.Common.Utilities</RootNamespace>
+    <AssemblyName>ExtenCiv.Common.Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\ExtensionMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theories\ExtenCivTheory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.Autofac\ExtenCiv.Resolvers.Autofac.csproj">
+      <Project>{AF4B6396-2FE9-4D0B-B588-D9E4E9886C8F}</Project>
+      <Name>ExtenCiv.Resolvers.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.DryIoc\ExtenCiv.Resolvers.DryIoc.csproj">
+      <Project>{F7127AB4-1A15-443D-A6DF-60B39D1F4A9D}</Project>
+      <Name>ExtenCiv.Resolvers.DryIoc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.Grace\ExtenCiv.Resolvers.Grace.csproj">
+      <Project>{FB04FB79-F2A6-43EC-ACD9-813EC3060F4C}</Project>
+      <Name>ExtenCiv.Resolvers.Grace</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.HaveBox\ExtenCiv.Resolvers.HaveBox.csproj">
+      <Project>{7AA4EE57-F5A1-4789-B95D-E46864AD1A6C}</Project>
+      <Name>ExtenCiv.Resolvers.HaveBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.LightInject\ExtenCiv.Resolvers.LightInject.csproj">
+      <Project>{826FE9D6-B2EA-4BAA-9040-37348A7ED863}</Project>
+      <Name>ExtenCiv.Resolvers.LightInject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.Ninject\ExtenCiv.Resolvers.Ninject.csproj">
+      <Project>{7F7B68E2-A295-4E66-9384-28DF7410A837}</Project>
+      <Name>ExtenCiv.Resolvers.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.SimpleInjector\ExtenCiv.Resolvers.SimpleInjector.csproj">
+      <Project>{0A8AF90C-7459-4093-8304-50840603211D}</Project>
+      <Name>ExtenCiv.Resolvers.SimpleInjector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.StructureMap\ExtenCiv.Resolvers.StructureMap.csproj">
+      <Project>{E1FC6569-8B37-4933-9BFD-1FB3350819DB}</Project>
+      <Name>ExtenCiv.Resolvers.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.TinyIoC\ExtenCiv.Resolvers.TinyIoC.csproj">
+      <Project>{88EAEB10-6881-4421-9D1F-45AA04121001}</Project>
+      <Name>ExtenCiv.Resolvers.TinyIoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.Unity\ExtenCiv.Resolvers.Unity.csproj">
+      <Project>{1C14C5D2-B877-4402-9FC9-F1820EF80631}</Project>
+      <Name>ExtenCiv.Resolvers.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers.Windsor\ExtenCiv.Resolvers.Windsor.csproj">
+      <Project>{26E64EAB-5E8B-458A-8184-E7BCAB2E737A}</Project>
+      <Name>ExtenCiv.Resolvers.Windsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers\ExtenCiv.Resolvers.csproj">
+      <Project>{F93A9DAF-CA1A-4584-9172-8BB9B070DAA6}</Project>
+      <Name>ExtenCiv.Resolvers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
