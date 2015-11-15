@@ -5,6 +5,8 @@ namespace ExtenCiv.Players
 {
     /// <summary>
     ///     Players take turns in a round-robin fashion.
+    ///     <para></para>
+    ///     Dependencies: Collection of available players.
     /// </summary>
     public sealed class RoundRobinTurnTaking : ITurnTakingStrategy
     {
@@ -15,10 +17,10 @@ namespace ExtenCiv.Players
         ///     Creates a round-robin turn strategy from a collection of players.
         ///     The first player in the collection is in turn from start.
         /// </summary>
-        /// <param name="players">The collection of players that take turns.</param>
-        public RoundRobinTurnTaking(IEnumerable<Player> players)
+        /// <param name="playerStrategy">A player strategy that defines the collection of players taking turns.</param>
+        public RoundRobinTurnTaking(IPlayerStrategy playerStrategy)
         {
-            this.players = players.ToArray();
+            players = playerStrategy.Players.ToArray();
             indexOfCurrentPlayer = 0;
         }
 

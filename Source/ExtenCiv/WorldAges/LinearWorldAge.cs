@@ -2,6 +2,8 @@
 {
     /// <summary>
     ///     The world age progresses linearly by 100 years every round, starting in 4000 BCE.
+    ///     <para></para>
+    ///     Dependencies: None.
     /// </summary>
     public sealed class LinearWorldAge : IWorldAgeStrategy
     {

@@ -1,4 +1,4 @@
-﻿using ExtenCiv.Tests.Utilities;
+﻿using ExtenCiv.Common.Utilities.Extensions;
 using ExtenCiv.WorldAges;
 using FluentAssertions;
 using Xunit;
@@ -7,7 +7,6 @@ namespace ExtenCiv.Tests.WorldAges
 {
     public sealed class TestDeceleratingWorldAge
     {
-        // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         [Theory]
         //
         /* DONE World age is 4000 BCE from start. */
@@ -55,7 +54,7 @@ namespace ExtenCiv.Tests.WorldAges
         /* DONE World age is 1972 CE after advancing 98 rounds. */
         [InlineData(98, 1972)]
         //
-        public void WorldAge_AdvancesBy100Years(int roundsToAdvance, int expectedWorldAge)
+        public void WorldAge_IsDecelerating(int roundsToAdvance, int expectedWorldAge)
         {
             // :::: ARRANGE ::::
             var decelerating = new DeceleratingWorldAge();

@@ -1,19 +1,9 @@
 ﻿namespace ExtenCiv.WorldAges
 {
     /// <summary>
-    /// The world age progresses at a decelerating rate, starting in 4000 BCE.
-    /// <para></para>
-    /// Between 4000 BCE and 1 BCE, it ages by 100 years every round.
-    /// <para></para>
-    /// When the world age is 1 BCE, it advances to 1 CE in the following round.
-    /// <para></para>
-    /// Between 1 CE and 1750, it ages by 50 years every round.
-    /// <para></para>
-    /// Between 1750 and 1900, it ages by 25 years every round.
-    /// <para></para>
-    /// Between 1900 and 1970, it ages by five years every round.
-    /// <para></para>
-    /// After 1970, it ages by one year every round.
+    ///     The world age progresses at a decelerating rate, starting in 4000 BCE.
+    ///     <para></para>
+    ///     Dependencies: None.
     /// </summary>
     public sealed class DeceleratingWorldAge : IWorldAgeStrategy
     {

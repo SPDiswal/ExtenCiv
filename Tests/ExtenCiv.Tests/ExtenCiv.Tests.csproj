@@ -78,10 +78,12 @@
   <ItemGroup>
     <Compile Include="Players\TestRoundRobinTurnTaking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Winners\TestRedWinsIn3000Bce.cs" />
     <Compile Include="WorldAges\TestDeceleratingWorldAge.cs" />
     <Compile Include="WorldAges\TestLinearWorldAge.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,11 +91,16 @@
       <Project>{1E603DFF-C2F4-46F0-9065-C5D2301B4C3B}</Project>
       <Name>ExtenCiv</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExtenCiv.Utilities\ExtenCiv.Utilities.csproj">
-      <Project>{20CA5CED-D1B1-4237-9482-354B3B520679}</Project>
-      <Name>ExtenCiv.Utilities</Name>
+    <ProjectReference Include="..\ExtenCiv.Common.Utilities\ExtenCiv.Common.Utilities.csproj">
+      <Project>{DE8BD128-3A16-4A1A-9662-72278E2F37D7}</Project>
+      <Name>ExtenCiv.Common.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv.Resolvers\ExtenCiv.Resolvers.csproj">
+      <Project>{F93A9DAF-CA1A-4584-9172-8BB9B070DAA6}</Project>
+      <Name>ExtenCiv.Resolvers</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

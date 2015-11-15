@@ -1,4 +1,4 @@
-﻿using ExtenCiv.Tests.Utilities;
+﻿using ExtenCiv.Common.Utilities.Extensions;
 using ExtenCiv.WorldAges;
 using FluentAssertions;
 using Xunit;
@@ -18,7 +18,7 @@ namespace ExtenCiv.Tests.WorldAges
         /* DONE World age is 3800 BCE after advancing two rounds. */
         [InlineData(2, -3800)]
         //
-        public void WorldAge_AdvancesBy100Years(int roundsToAdvance, int expectedWorldAge)
+        public void WorldAge_AdvancesLinearlyBy100Years(int roundsToAdvance, int expectedWorldAge)
         {
             // :::: ARRANGE ::::
             var linear = new LinearWorldAge();
