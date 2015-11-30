@@ -37,12 +37,29 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cities\City.cs" />
+    <Compile Include="Game\CityViewModel.cs" />
+    <Compile Include="Game\ExtenCivGame.cs" />
+    <Compile Include="Game\IGame.cs" />
+    <Compile Include="Game\TerrainViewModel.cs" />
+    <Compile Include="Game\UnitViewModel.cs" />
+    <Compile Include="UnitActions\CityBuildingAction.cs" />
+    <Compile Include="UnitActions\UnitDecorator.cs" />
+    <Compile Include="UnitActions\FortificationAction.cs" />
+    <Compile Include="UnitProduction\IUnitFactory.cs" />
+    <Compile Include="Units\Archer.cs" />
+    <Compile Include="Units\Legion.cs" />
+    <Compile Include="Units\Settler.cs" />
+    <Compile Include="Utilities\Extensions\ExtensionMethods.cs" />
     <Compile Include="GameBoards\IGameBoardStrategy.cs" />
-    <Compile Include="GameBoards\IPosition.cs" />
-    <Compile Include="Players\IPlayerStrategy.cs" />
+    <Compile Include="GameBoards\SimpleFixedGameBoard.cs" />
     <Compile Include="Players\ITurnTakingStrategy.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\RoundRobinTurnTaking.cs" />
+    <Compile Include="Terrains\Hills.cs" />
+    <Compile Include="Terrains\Mountains.cs" />
+    <Compile Include="Terrains\Oceans.cs" />
+    <Compile Include="Terrains\Plains.cs" />
     <Compile Include="Winners\CityConquerorWins.cs" />
     <Compile Include="Winners\IWinnerStrategy.cs" />
     <Compile Include="Winners\RedWinsIn3000Bce.cs" />
@@ -50,12 +67,15 @@
     <Compile Include="WorldAges\IWorldAgeStrategy.cs" />
     <Compile Include="WorldAges\LinearWorldAge.cs" />
     <Compile Include="Cities\ICity.cs" />
-    <Compile Include="GameBoards\SquarePosition.cs" />
+    <Compile Include="GameBoards\Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tiles\ITile.cs" />
+    <Compile Include="Terrains\ITerrain.cs" />
     <Compile Include="Units\IUnit.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UnitCombat\" />
+    <Folder Include="UnitMovement\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

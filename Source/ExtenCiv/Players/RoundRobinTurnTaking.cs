@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace ExtenCiv.Players
+﻿namespace ExtenCiv.Players
 {
     /// <summary>
     ///     Players take turns in a round-robin fashion.
     ///     <para></para>
-    ///     Dependencies: Collection of available players.
+    ///     <para>Dependencies:</para>
+    ///     Collection of available players.
     /// </summary>
     public sealed class RoundRobinTurnTaking : ITurnTakingStrategy
     {
@@ -17,10 +15,10 @@ namespace ExtenCiv.Players
         ///     Creates a round-robin turn strategy from a collection of players.
         ///     The first player in the collection is in turn from start.
         /// </summary>
-        /// <param name="playerStrategy">A player strategy that defines the collection of players taking turns.</param>
-        public RoundRobinTurnTaking(IPlayerStrategy playerStrategy)
+        /// <param name="players">An array of the players taking turns.</param>
+        public RoundRobinTurnTaking(Player[] players)
         {
-            players = playerStrategy.Players.ToArray();
+            this.players = players;
             indexOfCurrentPlayer = 0;
         }
 

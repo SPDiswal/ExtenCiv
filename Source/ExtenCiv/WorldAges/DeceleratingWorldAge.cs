@@ -3,7 +3,8 @@
     /// <summary>
     ///     The world age progresses at a decelerating rate, starting in 4000 BCE.
     ///     <para></para>
-    ///     Dependencies: None.
+    ///     <para>Dependencies:</para>
+    ///     None.
     /// </summary>
     public sealed class DeceleratingWorldAge : IWorldAgeStrategy
     {
