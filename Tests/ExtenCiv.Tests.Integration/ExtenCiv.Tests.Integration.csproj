@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F75E69C-3763-48AE-8B6F-C28D05A20757}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtenCiv.Tests.Integration</RootNamespace>
+    <AssemblyName>ExtenCiv.Tests.Integration</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentAssertions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentAssertions.4.2.1\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentAssertions.4.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise />
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Common\TestExtenCiv.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AlphaCiv\TestAlphaCiv.cs" />
+    <Compile Include="SemiCiv\TestSemiCiv.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Autofac\ExtenCiv.CompositionRoot.Autofac.csproj">
+      <Project>{7088D60D-1A99-493C-A1FE-D8E1FEC4280D}</Project>
+      <Name>ExtenCiv.CompositionRoot.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.DryIoc\ExtenCiv.CompositionRoot.DryIoc.csproj">
+      <Project>{1D694B0C-50C1-441F-83F1-A5312C563D3A}</Project>
+      <Name>ExtenCiv.CompositionRoot.DryIoc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.LightInject\ExtenCiv.CompositionRoot.LightInject.csproj">
+      <Project>{841B335C-0FA9-4C8A-9D4C-3038E8BF1E0B}</Project>
+      <Name>ExtenCiv.CompositionRoot.LightInject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.PoorMan\ExtenCiv.CompositionRoot.PoorMan.csproj">
+      <Project>{FE7F371A-C4A4-4BB6-BADF-A5845E6FE101}</Project>
+      <Name>ExtenCiv.CompositionRoot.PoorMan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Ninject\ExtenCiv.CompositionRoot.Ninject.csproj">
+      <Project>{8CD35A6D-6222-469F-A571-DF5A5EB40C2E}</Project>
+      <Name>ExtenCiv.CompositionRoot.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.SimpleInjector\ExtenCiv.CompositionRoot.SimpleInjector.csproj">
+      <Project>{49A8DE5F-FBD1-46EB-86C0-4F9A7061717F}</Project>
+      <Name>ExtenCiv.CompositionRoot.SimpleInjector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.StructureMap\ExtenCiv.CompositionRoot.StructureMap.csproj">
+      <Project>{05591942-B87E-4B06-AA31-7B2F8AC19CE4}</Project>
+      <Name>ExtenCiv.CompositionRoot.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Unity\ExtenCiv.CompositionRoot.Unity.csproj">
+      <Project>{F9751F30-675F-4393-88A1-FF7F467836BA}</Project>
+      <Name>ExtenCiv.CompositionRoot.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot\ExtenCiv.CompositionRoot.csproj">
+      <Project>{C9DD6ABD-563E-4407-91C6-B3E598F684BB}</Project>
+      <Name>ExtenCiv.CompositionRoot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.Utilities\ExtenCiv.Utilities.csproj">
+      <Project>{071314CA-B272-4680-96E9-19FB526735AE}</Project>
+      <Name>ExtenCiv.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Windsor\ExtenCiv.CompositionRoot.Windsor.csproj">
+      <Project>{5CEFA666-FA3F-4A8F-B2CC-4C69CDB36499}</Project>
+      <Name>ExtenCiv.CompositionRoot.Windsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv\ExtenCiv.csproj">
+      <Project>{1E603DFF-C2F4-46F0-9065-C5D2301B4C3B}</Project>
+      <Name>ExtenCiv</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

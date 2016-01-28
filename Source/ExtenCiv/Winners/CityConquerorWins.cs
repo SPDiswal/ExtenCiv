@@ -1,20 +1,23 @@
-﻿using System.Linq;
-using ExtenCiv.GameBoards;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ExtenCiv.Cities.Abstractions;
 using ExtenCiv.Players;
+using ExtenCiv.Winners.Abstractions;
 
 namespace ExtenCiv.Winners
 {
     /// <summary>
-    ///     The winner is the first player to be the owner of all cities on the game board. Until then, there is no winner.
+    ///     The winner is the player that controls all cities on the world map.
+    ///     If there are multiple players controlling cities, there is no winner.
     ///     <para></para>
     ///     <para>Dependencies:</para>
-    ///     Game board strategy.
+    ///     Set of cities.
     /// </summary>
     public sealed class CityConquerorWins : IWinnerStrategy
     {
-        private readonly IGameBoardStrategy gameBoardStrategy;
+        private readonly ISet<ICity> cities;
 
-        public CityConquerorWins(IGameBoardStrategy gameBoardStrategy) { this.gameBoardStrategy = gameBoardStrategy; }
+        public CityConquerorWins(ISet<ICity> cities) { this.cities = cities; }
 
         /// <summary>
         ///     The winner of the game, or <c>Player.Nobody</c> if there is no winner yet.
@@ -23,7 +26,7 @@ namespace ExtenCiv.Winners
         {
             get
             {
-                var cityOwners = gameBoardStrategy.Cities.Values.Select(city => city.Owner).Distinct().ToArray();
+                var cityOwners = cities.Select(city => city.Owner).Distinct().ToArray();
                 return cityOwners.Length == 1 ? cityOwners.Single() : Player.Nobody;
             }
         }

@@ -37,45 +37,95 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cities\City.cs" />
-    <Compile Include="Game\CityViewModel.cs" />
-    <Compile Include="Game\ExtenCivGame.cs" />
-    <Compile Include="Game\IGame.cs" />
-    <Compile Include="Game\TerrainViewModel.cs" />
-    <Compile Include="Game\UnitViewModel.cs" />
-    <Compile Include="UnitActions\CityBuildingAction.cs" />
-    <Compile Include="UnitActions\UnitDecorator.cs" />
-    <Compile Include="UnitActions\FortificationAction.cs" />
-    <Compile Include="UnitProduction\IUnitFactory.cs" />
-    <Compile Include="Units\Archer.cs" />
-    <Compile Include="Units\Legion.cs" />
-    <Compile Include="Units\Settler.cs" />
-    <Compile Include="Utilities\Extensions\ExtensionMethods.cs" />
-    <Compile Include="GameBoards\IGameBoardStrategy.cs" />
-    <Compile Include="GameBoards\SimpleFixedGameBoard.cs" />
-    <Compile Include="Players\ITurnTakingStrategy.cs" />
+    <Compile Include="Cities\Abstractions\CityDecorator.cs" />
+    <Compile Include="Cities\ProductionProjects\EmptyProject.cs" />
+    <Compile Include="Cities\Types\Factories\CityFactory.cs" />
+    <Compile Include="Cities\Workforce\FriendlyCityManagementOnly.cs" />
+    <Compile Include="Cities\Workforce\NoCityGrowth.cs" />
+    <Compile Include="Cities\Abstractions\IProductionProject.cs" />
+    <Compile Include="Cities\Workforce\FixedGeneratedProduction.cs" />
+    <Compile Include="Cities\Workforce\ProductionAccumulation.cs" />
+    <Compile Include="Cities\Types\City.cs" />
+    <Compile Include="Cities\Types\Factories\Abstractions\ICityFactory.cs" />
+    <Compile Include="Cities\Utilities\CityEqualityComparer.cs" />
+    <Compile Include="Games\ViewModels\CityViewModel.cs" />
+    <Compile Include="Games\ExtenCivGame.cs" />
+    <Compile Include="Games\Abstractions\IGame.cs" />
+    <Compile Include="Games\ViewModels\TerrainViewModel.cs" />
+    <Compile Include="Games\ViewModels\UnitViewModel.cs" />
+    <Compile Include="Players\Events\INotifyBeginningNextRound.cs" />
+    <Compile Include="Players\Events\BeginningNextRoundEventArgs.cs" />
+    <Compile Include="Terrains\Types\Factories\HillsFactory.cs" />
+    <Compile Include="Terrains\Types\Factories\OceansFactory.cs" />
+    <Compile Include="Terrains\Types\Factories\PlainsFactory.cs" />
+    <Compile Include="Terrains\Types\Factories\MountainsFactory.cs" />
+    <Compile Include="Terrains\Types\Factories\ForestsFactory.cs" />
+    <Compile Include="Terrains\Types\Forests.cs" />
+    <Compile Include="Terrains\Utilities\TerrainEqualityComparer.cs" />
+    <Compile Include="Units\Combat\Enumerations\CombatOutcome.cs" />
+    <Compile Include="Units\Movement\CityConquest.cs" />
+    <Compile Include="Units\Movement\Movability.cs" />
+    <Compile Include="Units\Movement\MoveCosts.cs" />
+    <Compile Include="Units\Movement\OneToOneCombatEngagement.cs" />
+    <Compile Include="Units\Movement\RestorationOfMoves.cs" />
+    <Compile Include="Units\Movement\FriendlyUnitManagementOnly.cs" />
+    <Compile Include="Units\Types\Factories\ChariotFactory.cs" />
+    <Compile Include="Units\Types\Factories\SettlerFactory.cs" />
+    <Compile Include="Units\Types\Factories\LegionFactory.cs" />
+    <Compile Include="Units\Types\Factories\ArcherFactory.cs" />
+    <Compile Include="Units\Types\Factories\GenericUnitFactoryAdapter.cs" />
+    <Compile Include="Units\Types\ProductionProjects\ArcherProject.cs" />
+    <Compile Include="Units\Types\Chariot.cs" />
+    <Compile Include="Units\Types\ProductionProjects\ChariotProject.cs" />
+    <Compile Include="Units\Types\ProductionProjects\LegionProject.cs" />
+    <Compile Include="Units\Types\ProductionProjects\SettlerProject.cs" />
+    <Compile Include="WorldMaps\SimpleFixedUnitLayer.cs" />
+    <Compile Include="WorldMaps\SimpleFixedCityLayer.cs" />
+    <Compile Include="WorldMaps\Tiles\Abstractions\ITile.cs" />
+    <Compile Include="Units\Actions\CityBuildingAction.cs" />
+    <Compile Include="Terrains\Types\Factories\Abstractions\ITerrainFactory.cs" />
+    <Compile Include="Units\Combat\AttackerIsAlwaysVictorious.cs" />
+    <Compile Include="Units\Movement\LimitedMoveRange.cs" />
+    <Compile Include="Units\Movement\NoEntranceToImpassableTerrain.cs" />
+    <Compile Include="Units\Movement\NoFriendlyUnitStacking.cs" />
+    <Compile Include="Units\Abstractions\UnitDecorator.cs" />
+    <Compile Include="Units\Actions\FortificationAction.cs" />
+    <Compile Include="Units\Combat\Abstractions\IUnitCombat.cs" />
+    <Compile Include="Units\Types\Factories\Abstractions\IUnitFactory.cs" />
+    <Compile Include="Units\Types\Archer.cs" />
+    <Compile Include="Units\Types\Legion.cs" />
+    <Compile Include="Units\Types\Settler.cs" />
+    <Compile Include="Units\Utilities\UnitEqualityComparer.cs" />
+    <Compile Include="WorldMaps\Abstractions\ICityLayer.cs" />
+    <Compile Include="WorldMaps\Abstractions\ITerrainLayer.cs" />
+    <Compile Include="WorldMaps\Abstractions\IUnitLayer.cs" />
+    <Compile Include="WorldMaps\SimpleFixedTerrainLayer.cs" />
+    <Compile Include="Players\Abstractions\ITurnTaking.cs" />
     <Compile Include="Players\Player.cs" />
-    <Compile Include="Players\RoundRobinTurnTaking.cs" />
-    <Compile Include="Terrains\Hills.cs" />
-    <Compile Include="Terrains\Mountains.cs" />
-    <Compile Include="Terrains\Oceans.cs" />
-    <Compile Include="Terrains\Plains.cs" />
+    <Compile Include="Players\RoundRobinTurns.cs" />
+    <Compile Include="Terrains\Types\Hills.cs" />
+    <Compile Include="Terrains\Types\Mountains.cs" />
+    <Compile Include="Terrains\Types\Oceans.cs" />
+    <Compile Include="Terrains\Types\Plains.cs" />
     <Compile Include="Winners\CityConquerorWins.cs" />
-    <Compile Include="Winners\IWinnerStrategy.cs" />
+    <Compile Include="Winners\Abstractions\IWinnerStrategy.cs" />
     <Compile Include="Winners\RedWinsIn3000Bce.cs" />
     <Compile Include="WorldAges\DeceleratingWorldAge.cs" />
-    <Compile Include="WorldAges\IWorldAgeStrategy.cs" />
+    <Compile Include="WorldAges\Abstractions\IWorldAge.cs" />
     <Compile Include="WorldAges\LinearWorldAge.cs" />
-    <Compile Include="Cities\ICity.cs" />
-    <Compile Include="GameBoards\Position.cs" />
+    <Compile Include="Cities\Abstractions\ICity.cs" />
+    <Compile Include="WorldMaps\Tiles\SquareTile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Terrains\ITerrain.cs" />
-    <Compile Include="Units\IUnit.cs" />
+    <Compile Include="Terrains\Abstractions\ITerrain.cs" />
+    <Compile Include="Units\Abstractions\IUnit.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UnitCombat\" />
-    <Folder Include="UnitMovement\" />
+    <ProjectReference Include="..\ExtenCiv.Utilities\ExtenCiv.Utilities.csproj">
+      <Project>{071314ca-b272-4680-96e9-19fb526735ae}</Project>
+      <Name>ExtenCiv.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

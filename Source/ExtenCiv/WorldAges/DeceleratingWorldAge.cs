@@ -1,31 +1,36 @@
-﻿namespace ExtenCiv.WorldAges
+﻿using ExtenCiv.Players.Events;
+using ExtenCiv.WorldAges.Abstractions;
+
+namespace ExtenCiv.WorldAges
 {
     /// <summary>
-    ///     The world age progresses at a decelerating rate, starting in 4000 BCE.
+    ///     The world age progresses at a decelerating pace, starting in 4000 BCE.
     ///     <para></para>
     ///     <para>Dependencies:</para>
-    ///     None.
+    ///     Notifier of when the next round begins.
     /// </summary>
-    public sealed class DeceleratingWorldAge : IWorldAgeStrategy
+    public sealed class DeceleratingWorldAge : IWorldAge
     {
+        public DeceleratingWorldAge(INotifyBeginningNextRound notifier)
+        {
+            notifier.BeginningNextRound += OnBeginningNextRound;
+        }
+
+        private void OnBeginningNextRound(object sender, BeginningNextRoundEventArgs e)
+        {
+            if (CurrentWorldAge < -100) CurrentWorldAge += 100;
+            else if (CurrentWorldAge == -100) CurrentWorldAge = -1;
+            else if (CurrentWorldAge == -1) CurrentWorldAge = 1;
+            else if (CurrentWorldAge == 1) CurrentWorldAge = 50;
+            else if (CurrentWorldAge >= 50 && CurrentWorldAge < 1750) CurrentWorldAge += 50;
+            else if (CurrentWorldAge >= 1750 && CurrentWorldAge < 1900) CurrentWorldAge += 25;
+            else if (CurrentWorldAge >= 1900 && CurrentWorldAge < 1970) CurrentWorldAge += 5;
+            else CurrentWorldAge += 1;
+        }
+
         /// <summary>
         ///     The current age of the world, in years.
         /// </summary>
-        public int WorldAge { get; private set; } = -4000;
-
-        /// <summary>
-        ///     Moves one step forward in time.
-        /// </summary>
-        public void AdvanceWorldAge()
-        {
-            if (WorldAge < -100) WorldAge += 100;
-            else if (WorldAge == -100) WorldAge = -1;
-            else if (WorldAge == -1) WorldAge = 1;
-            else if (WorldAge == 1) WorldAge = 50;
-            else if (WorldAge >= 50 && WorldAge < 1750) WorldAge += 50;
-            else if (WorldAge >= 1750 && WorldAge < 1900) WorldAge += 25;
-            else if (WorldAge >= 1900 && WorldAge < 1970) WorldAge += 5;
-            else WorldAge += 1;
-        }
+        public int CurrentWorldAge { get; private set; } = -4000;
     }
 }

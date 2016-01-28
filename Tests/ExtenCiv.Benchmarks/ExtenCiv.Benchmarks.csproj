@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18A51EF3-E793-4C1B-86B5-D9DB5D283DFB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtenCiv.Benchmarks</RootNamespace>
+    <AssemblyName>ExtenCiv.Benchmarks</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Benchmarks\Abstractions\IBenchmark.cs" />
+    <Compile Include="Benchmarks\DryIocBenchmark.cs" />
+    <Compile Include="Benchmarks\AutofacBenchmark.cs" />
+    <Compile Include="Benchmarks\LightInjectBenchmark.cs" />
+    <Compile Include="Benchmarks\PoorManBenchmark.cs" />
+    <Compile Include="Benchmarks\NinjectBenchmark.cs" />
+    <Compile Include="Benchmarks\SimpleInjectorBenchmark.cs" />
+    <Compile Include="Benchmarks\StructureMapBenchmark.cs" />
+    <Compile Include="Benchmarks\UnityBenchmark.cs" />
+    <Compile Include="Benchmarks\WindsorBenchmark.cs" />
+    <Compile Include="Runners\BenchmarkRunner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Autofac\ExtenCiv.CompositionRoot.Autofac.csproj">
+      <Project>{7088D60D-1A99-493C-A1FE-D8E1FEC4280D}</Project>
+      <Name>ExtenCiv.CompositionRoot.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.DryIoc\ExtenCiv.CompositionRoot.DryIoc.csproj">
+      <Project>{1D694B0C-50C1-441F-83F1-A5312C563D3A}</Project>
+      <Name>ExtenCiv.CompositionRoot.DryIoc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.LightInject\ExtenCiv.CompositionRoot.LightInject.csproj">
+      <Project>{841b335c-0fa9-4c8a-9d4c-3038e8bf1e0b}</Project>
+      <Name>ExtenCiv.CompositionRoot.LightInject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.PoorMan\ExtenCiv.CompositionRoot.PoorMan.csproj">
+      <Project>{fe7f371a-c4a4-4bb6-badf-a5845e6fe101}</Project>
+      <Name>ExtenCiv.CompositionRoot.PoorMan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Ninject\ExtenCiv.CompositionRoot.Ninject.csproj">
+      <Project>{8cd35a6d-6222-469f-a571-df5a5eb40c2e}</Project>
+      <Name>ExtenCiv.CompositionRoot.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.SimpleInjector\ExtenCiv.CompositionRoot.SimpleInjector.csproj">
+      <Project>{49a8de5f-fbd1-46eb-86c0-4f9a7061717f}</Project>
+      <Name>ExtenCiv.CompositionRoot.SimpleInjector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.StructureMap\ExtenCiv.CompositionRoot.StructureMap.csproj">
+      <Project>{05591942-b87e-4b06-aa31-7b2f8ac19ce4}</Project>
+      <Name>ExtenCiv.CompositionRoot.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Unity\ExtenCiv.CompositionRoot.Unity.csproj">
+      <Project>{f9751f30-675f-4393-88a1-ff7f467836ba}</Project>
+      <Name>ExtenCiv.CompositionRoot.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot.Windsor\ExtenCiv.CompositionRoot.Windsor.csproj">
+      <Project>{5cefa666-fa3f-4a8f-b2cc-4c69cdb36499}</Project>
+      <Name>ExtenCiv.CompositionRoot.Windsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv.CompositionRoot\ExtenCiv.CompositionRoot.csproj">
+      <Project>{c9dd6abd-563e-4407-91c6-b3e598f684bb}</Project>
+      <Name>ExtenCiv.CompositionRoot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\ExtenCiv\ExtenCiv.csproj">
+      <Project>{1E603DFF-C2F4-46F0-9065-C5D2301B4C3B}</Project>
+      <Name>ExtenCiv</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

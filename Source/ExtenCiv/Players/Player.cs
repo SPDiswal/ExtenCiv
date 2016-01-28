@@ -18,9 +18,10 @@ namespace ExtenCiv.Players
         ///     Creates a player with the given name.
         /// </summary>
         /// <param name="name">The name of the player.</param>
+        /// <exception cref="ArgumentNullException"><c>name</c> is null or contains whitespace only.</exception>
         public Player(string name)
         {
-            if (name == null) throw new ArgumentNullException(nameof(name));
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
             Name = name;
         }
 

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ExtenCiv.Common.Utilities")]
+[assembly: AssemblyTitle("ExtenCiv.Utilities")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ExtenCiv.Common.Utilities")]
+[assembly: AssemblyProduct("ExtenCiv.Utilities")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("de8bd128-3a16-4a1a-9662-72278e2f37d7")]
+[assembly: Guid("071314ca-b272-4680-96e9-19fb526735ae")]
 
 // Version information for an assembly consists of the following four values:
 //

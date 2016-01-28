@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C9DD6ABD-563E-4407-91C6-B3E598F684BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtenCiv.CompositionRoot</RootNamespace>
+    <AssemblyName>ExtenCiv.CompositionRoot</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builders\Abstractions\ICityBuilder.cs" />
+    <Compile Include="Directors\Abstractions\ICityDirector.cs" />
+    <Compile Include="Directors\Abstractions\IUnitDirector.cs" />
+    <Compile Include="Builders\Abstractions\IGameBuilder.cs" />
+    <Compile Include="Builders\Abstractions\IUnitBuilder.cs" />
+    <Compile Include="Directors\Cities\ReversedFixedCities.cs" />
+    <Compile Include="Directors\Cities\FixedCities.cs" />
+    <Compile Include="Directors\Units\ReversedFourUnitsWithActions.cs" />
+    <Compile Include="Directors\Units\FourUnitsWithActions.cs" />
+    <Compile Include="Directors\Units\ReversedThreeUnitsWithoutActions.cs" />
+    <Compile Include="Directors\Units\ThreeUnitsWithoutActions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\TypeConstraints.cs" />
+    <Compile Include="Utilities\TypeConverters.cs" />
+    <Compile Include="Utilities\TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtenCiv.Utilities\ExtenCiv.Utilities.csproj">
+      <Project>{071314CA-B272-4680-96E9-19FB526735AE}</Project>
+      <Name>ExtenCiv.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtenCiv\ExtenCiv.csproj">
+      <Project>{1E603DFF-C2F4-46F0-9065-C5D2301B4C3B}</Project>
+      <Name>ExtenCiv</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
